@@ -20,3 +20,9 @@ populate_arr 49151 65535 P_DYNAMIC
 determine_port_range P_WELL_KNOWN P_WELL_KNOWN
 determine_port_range P_REGISTERED P_REGISTERED
 determine_port_range P_DYNAMIC P_DYNAMIC
+
+IP_PUBLIC=$(get_public_ip curl -s ifconfig.me)
+IP_PRIVATE=$(get_private_ip)
+
+printf "My PUBLIC IP is: %s\n" "$IP_PUBLIC"
+printf "My PRIVATE IP is: %s\n" "$IP_PRIVATE"

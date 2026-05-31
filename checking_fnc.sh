@@ -14,6 +14,8 @@ determine_port_range() {
     printf "PORTS %s: %s [INITIALIZED]\n\n" "$2" "${#L_RANGE_TO_CHECK[@]}"
   fi
 
+  # Estos outputs deberían ir a log.txt
+
 }
 
 check_array_size() {
