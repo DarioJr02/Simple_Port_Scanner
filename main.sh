@@ -1,28 +1,28 @@
 #! /bin/bash
-# if you want to debug at CLI: #! /bin/bash -x
+# if you want to debug at cli: #! /bin/bash -x
 
 source ./checking_fnc.sh
 source ./utils.sh
 
-# 1. Print Title
-print_title "Simple Port Scanner"
+# 1. print title
+print_title "simple port scanner"
 
-declare -a P_WELL_KNOWN
-declare -a P_REGISTERED
-declare -a P_DYNAMIC
+declare -a p_well_known
+declare -a p_registered
+declare -a p_dynamic
 
-populate_arr 0 1023 P_WELL_KNOWN
-populate_arr 1024 49151 P_REGISTERED
-populate_arr 49151 65535 P_DYNAMIC
+populate_arr 0 1023 p_well_known
+populate_arr 1024 49151 p_registered
+populate_arr 49151 65535 p_dynamic
 
-#printf "Size: %s" "${#P_WELL_KNOWN[@]}"
+#printf "size: %s" "${#p_well_known[@]}"
 
-determine_port_range P_WELL_KNOWN P_WELL_KNOWN
-determine_port_range P_REGISTERED P_REGISTERED
-determine_port_range P_DYNAMIC P_DYNAMIC
+determine_port_range p_well_known p_well_known
+determine_port_range p_registered p_registered
+determine_port_range p_dynamic p_dynamic
 
-IP_PUBLIC=$(get_public_ip curl -s ifconfig.me)
-IP_PRIVATE=$(get_private_ip)
+ip_public=$(get_public_ip curl -s ifconfig.me)
+ip_private=$(get_private_ip)
 
-printf "My PUBLIC IP is: %s\n" "$IP_PUBLIC"
-printf "My PRIVATE IP is: %s\n" "$IP_PRIVATE"
+printf "My public ip is: %s\n" "$ip_public"
+printf "My private ip is: %s\n" "$ip_private"
