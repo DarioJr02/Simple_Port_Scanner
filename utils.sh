@@ -1,13 +1,13 @@
 #! /bin/bash
 
-# Title
+# title
 print_title() {
   figlet -tf Banner3-D "$1"
-  printf "||||| Select an option below |||||\n"
+  printf "||||| select an option below |||||\n"
 }
 
 get_public_ip() {
-  # We catch the command.
+  # we catch the command.
   "$@"
 }
 
@@ -16,19 +16,19 @@ get_private_ip() {
   ip route get 1.1.1.1 | awk '{print $7; exit}'
 }
 
-# Core function
+# core function
 populate_arr() {
-  # We'll define 3 local variables
-  #local N=0
-  local BEGIN=$1
-  local END=$2
-  local -n A_TO_POPULATE=$3
+  # we'll define 3 local variables
+  #local n=0
+  local begin=$1
+  local end=$2
+  local -n a_to_populate=$3
 
-  while [[ $BEGIN -le $END ]]; do
-    A_TO_POPULATE+=("$BEGIN")
-    ((BEGIN++))
+  while [[ $begin -le $end ]]; do
+    a_to_populate+=("$begin")
+    ((begin++))
   done
 
-  check_array_size A_TO_POPULATE
+  check_array_size a_to_populate
 
 }
