@@ -30,5 +30,15 @@ populate_arr() {
   done
 
   check_array_size a_to_populate
-
 }
+
+# Create files: directories, log.txt...
+
+_mkdir() {
+  local l_dir_name=$1
+  local l_full_sign="${l_dir_name}_$(date +%Y-%m-%d-%H-%M-%S)"
+
+  mkdir -pv "$l_full_sign"
+}
+
+_touch
